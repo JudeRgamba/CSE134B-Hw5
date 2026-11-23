@@ -1361,3 +1361,65 @@ body > .site-footer {
         display: block;
     }
 }
+
+/* Custom Web Component Styling */
+jude-facts {
+    --jude-facts-background: var(var(--surface-background), #ffffff);
+    --jude-facts-text: var(--text-color, #1f2925);
+
+    display: block;
+    margin-top: 1rem;
+}
+
+jude-facts.is-enhanced .jude-facts-fallback {
+    display: none;
+}
+
+.jude-facts-panel {
+    padding: 1.25rem;
+    border: 1px solid var(--board-color, #cccccc);
+    border-radius: 0.75rem;
+    background-color: var(--jude-facts-background);
+    color: var(--jude-facts-text);
+}
+
+.jude-facts-title {
+    margin: 0 0 0.75rem;
+}
+
+.jude-facts-button,
+#jude-facts-layout-toggle {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    padding: 0.65em 1em;
+    border: 1px solid var(--input-border, #365e4d);
+    border-radius: 0.75rem;
+    background-color: var(--button-background, #365e4d);
+    color: var(--button-text, #ffffff);
+    cursor: pointer;
+}
+
+.jude-facts-button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
+.jude-facts-button:focus-visible,
+#jude-facts-layout-toggle:focus-visible {
+    outline: 3px solid var(--focaus-color, #365e4d);
+    outline-offset: 3px;
+}
+
+.jude-facts-status {
+    min-height: 1.5em;
+    margin: 0.75rem 0 0;
+    font-size: 0.875rem;
+}
+
+.jude-fact.compact .jude-facts-panel {
+    padding: 0.75rem;
+}
+
+jude-facts.compact .jude-facts-fact {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+}

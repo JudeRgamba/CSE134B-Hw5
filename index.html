@@ -9,6 +9,7 @@
         <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
         <link rel="stylesheet" href="stylesheet.css">
         <script src="theme.js"></script>
+        <script src="components.js" defer></script>
     </head>
     <body class="home-page">
         <header>
@@ -95,6 +96,28 @@
                     off the entire US debt lol. But I didn't so heres some interesting stuff I've 
                     done and kind of enjoyed doing.
                 </p>
+            </section>
+
+            <section aria-labelledby="jude-facts-heading">
+                <h2 id="jude-facts-heading"> Fun facts about Jude</h2>
+
+                <button type="button" id="jude-facts-layout-toggle" aria-controls="jude-facts" aria-pressed="false" hidden>
+                    Enable compact view
+                </button>
+
+                <jude-facts id="jude-facts">
+                    <div class="jude-facts-fallback">
+                        <p>Jude has built more than 10 mechanical keyboards.</p>
+                        <p>Jude has visited 5 countries.</p>
+                        <p>Jude has over 1000 hours played on Rocket League</p>
+                    </div>
+                </jude-facts>
+
+                <noscript>
+                    <p>
+                        Enable Javascript to browse fun facts or load a live  random fact.
+                    </p>
+                </noscript>
             </section>
 
             <section aria-labelledby="projects-heading">
