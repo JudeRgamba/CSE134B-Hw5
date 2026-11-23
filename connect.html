@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description"
+            content="Personal website showcasing Jude Gamba's portfolio">
+        <Title>Let's Connect - Jude Gamba</Title>
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="theme.js"></script>
+    </head>
+    <body class="connect-page">
+        <header>
+            <h1>Let's Connect</h1>
+            <button type="button" class="theme-toggle" hidden>Switch to dark theme</button>
+        </header>
+        <nav aria-label="Main navigation">
+            <h2><span class="first-name">jude</span>.<span class="last-name">gamba</span></h2>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <img src="assets/icons/home.svg" data-dark-src="assets/icons/home-converted-inverted.png" alt="" width="24" height="24">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <img src="assets/icons/user.svg" data-dark-src="assets/icons/user-converted-inverted.png" alt="" width="24" height="24">
+                        <span>About Me</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="work.html">
+                        <img src="assets/icons/briefcase.svg" data-dark-src="assets/icons/briefcase-converted-inverted.png" alt="" width="24" height="24">
+                        <span>Work</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="connect.html" aria-current="page">
+                        <img src="assets/icons/paper-plane.svg" data-dark-src="assets/icons/paper-plane-converted-inverted.png" alt="" width="24" height="24">
+                        <span>Let's Connect</span>
+                    </a>
+                </li>
+                <li class="nav-resume-item">
+                    <a href="assets/jude-gamba-resume.pdf" download class="resume-link">
+                        Download Resume
+                    </a>
+                </li>
+                <li>
+                    <a href="form-no-js.html">
+                        <span>No JS Form</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="form-with-js.html">
+                        <span>JS Form</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <details class="mobile-menu">
+            <summary aria-label="Navigation menu">
+                <span class="hamburger" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </summary>
+            <nav aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="work.html">Work</a></li>
+                    <li><a href="connect.html" aria-current="page">Let's Connect</a></li>
+                    <li>
+                        <a href="form-no-js.html">
+                            No JS Form
+                        </a>
+                    </li>
+                    <li>
+                        <a href="form-with-js.html">
+                            JS Form
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </details>
+        <main>
+            <section aria-labelledby="message-heading">
+                <h2 id="message-heading">Tell me anything!</h2>
+
+                <form class="message-form">
+                    <p id="message-note">
+                        This form is a demonstration and does not send messages yet.
+                    </p>
+
+                    <label for="message">Your message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="6"
+                        placeholder="If you had any advice..."
+                        aria-describedby="message-note"
+                        required></textarea>
+
+                    <label for="email">Your email</label>
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        autocomplete="email"
+                        required>
+
+                    <button type="submit">Send message</button>
+                </form>
+            </section>
+
+            <section aria-labelledby="poll-heading">
+                <h2 id="poll-heading">A very important question</h2>
+
+                <form class="professor-poll">
+                    <fieldset>
+                        <legend>Choose the best professor at UCSD</legend>
+
+                        <label class="poll-option" for="powell">
+                            <input id="powell" type="radio"
+                                name="professor" value="P">
+                            <span>Professor Powell</span>
+                        </label>
+
+                        <label class="poll-option" for="porter">
+                            <input id="porter" type="radio"
+                                name="professor" value="O">
+                            <span>Professor Porter</span>
+                        </label>
+
+                        <label class="poll-option" for="gerald">
+                            <input id="gerald" type="radio"
+                                name="professor" value="S">
+                            <span>Professor Soosai Raj</span>
+                        </label>
+
+                        <label class="poll-option" for="cao">
+                            <input id="cao" type="radio"
+                                name="professor" value="C">
+                            <span>Professor Cao</span>
+                        </label>
+                        <p class="poll-feedback">You know ball</p>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
+
+        <aside aria-labelledby="journal-heading">
+            <section class="journal-panel desktop-journal">
+                <h2 id="journal-heading">Featured from my journal</h2>
+
+                <article>
+                    <h3>How the aura farming kid from tiktok helped me find a community</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>You don't need to optimize your life</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>My take on why UCSD isn't socially dead</h3>
+                    <p>Coming soon</p>
+                </article>
+            </section>
+            <details class="journal-panel mobile-journal">
+                <summary>Featured from my journal</summary>
+
+                <article>
+                    <h3>How the aura farming kid from tiktok helped me find a community</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>You don't need to optimize your life</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>My take on why UCSD isn't socially dead</h3>
+                    <p>Coming soon</p>
+                </article>
+            </details>
+
+            <ul class="social-links" aria-label="Social profiles">
+                <li>
+                    <a class="social-link" href="https://www.linkedin.com/in/jude-raphael-gamba">
+                        <img src="assets/icons/linkedin.svg" data-dark-src="assets/icons/linkedin-converted-inverted.png"
+                            alt="" width="24" height="24">
+                        <span>LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" href="https://github.com/JudeRgamba">
+                        <img src="assets/icons/GitHub_Invertocat_Black_Clearspace.svg" data-dark-src="assets/icons/GitHub_Invertocat_Black_Clearspace-converted-inverted.png"
+                            alt="" width="24" height="24">
+                        <span>GitHub</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="footer-message">Thanks for stopping by!</p>
+
+                <nav class="footer-links" aria-label="Footer navigation">
+                    <a href="https://github.com/JudeRgamba">
+                        <img
+                            src="assets/icons/GitHub_Invertocat_Black_Clearspace.svg" data-dark-src="assets/icons/GitHub_Invertocat_Black_Clearspace-converted-inverted.png"
+                            alt=""
+                            width="24"
+                            height="24">
+                        <span>GitHub</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/jude-raphael-gamba">
+                        <img
+                            src="assets/icons/linkedin.svg" data-dark-src="assets/icons/linkedin-converted-inverted.png"
+                            alt=""
+                            width="24"
+                            height="24">
+                        <span>LinkedIn</span>
+                    </a>
+
+                    <a href="experiments.html">Experiment Playground</a>
+                </nav>
+            </div>
+
+            <p class="footer-copyright">
+                <small>© 2026 Jude Gamba</small>
+            </p>
+        </footer>
+        <a
+            class="floating-resume"
+            href="assets/jude-gamba-resume.pdf"
+            download
+            aria-label="Download resume">
+            <img
+                src="assets/icons/download.svg" data-dark-src="assets/icons/download-converted-inverted.png"
+                alt=""
+                width="24"
+                height="24">
+        </a>
+    </body>
+</html>

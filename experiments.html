@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description"
+            content="Personal website showcasing Jude Gamba's portfolio">
+        <Title>Experiments Page</Title>
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="theme.js"></script>
+    </head>
+        <header>
+            <h1>Experiments</h1>
+            <button type="button" class="theme-toggle" hidden>Switch to dark theme</button>
+        </header>
+        <nav aria-label="Main navigation">
+            <h2><span class="first-name">jude</span>.<span class="last-name">gamba</span></h2>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <img src="assets/icons/home.svg" data-dark-src="assets/icons/home-converted-inverted.png" alt="" width="24" height="24">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <img src="assets/icons/user.svg" data-dark-src="assets/icons/user-converted-inverted.png" alt="" width="24" height="24">
+                        <span>About Me</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="work.html">
+                        <img src="assets/icons/briefcase.svg" data-dark-src="assets/icons/briefcase-converted-inverted.png" alt="" width="24" height="24">
+                        <span>Work</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="connect.html">
+                        <img src="assets/icons/paper-plane.svg" data-dark-src="assets/icons/paper-plane-converted-inverted.png" alt="" width="24" height="24">
+                        <span>Let's Connect</span>
+                    </a>
+                </li>
+                <li class="nav-resume-item">
+                    <a href="assets/jude-gamba-resume.pdf" download class="resume-link">
+                        Download Resume
+                    </a>
+                </li>
+                <li>
+                    <a href="form-no-js.html">
+                        <span>No JS Form</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="form-with-js.html">
+                        <span>JS Form</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <details class="mobile-menu">
+            <summary aria-label="Navigation menu">
+                <span class="hamburger" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </summary>
+            <nav aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="work.html">Work</a></li>
+                    <li><a href="connect.html">Let's Connect</a></li>
+                    <li>
+                        <a href="form-no-js.html">
+                            No JS Form
+                        </a>
+                    </li>
+                    <li>
+                        <a href="form-with-js.html">
+                            JS Form
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </details>
+        <main>
+            <section aria-labelledby="audio-experiment">
+                <h2>Audio Experiment</h2>
+                <audio controls>
+                    <source src="assets/audio/im-ready.mp3" type="audio/mpeg">
+                    Your browser does not support HTML audio.
+                </audio>
+            </section>
+            <section aria-labelledby="video-experiment">
+                <h2>Video Experiment</h2>
+                <video controls width="480">
+                    <source src="assets/videos/race.MOV" type="video/mp4">
+                    Your browser does not support HTML video.
+                </video>
+            </section>
+            <section aria-labelledby="canvas-experiment">
+                <h2>Canvas Experiment</h2>
+                <canvas id="drawing" width="320" height="160">
+                    A blue rectangle with the text “Hello world.”
+                </canvas>
+            </section>
+            <section aria-labelledby="template-experiment">
+                <h2>Template Experiment</h2>
+                <p>
+                    This template stores reusable HTML.
+                    Its contents remain hidden until activated with JavaScript.
+                </p>
+
+                <template id="project-template">
+                    <article>
+                        <h3>Project name</h3>
+                        <p>Project description goes here.</p>
+                    </article>
+                </template>
+            </section>
+            <section aria-labelledby="svg-experiment">
+            <h2>SVG Experiment</h2>
+                <svg width="240" height="140">
+                    <title>A translucent blue rectangle with a black border</title>
+                    <rect
+                        width="200"
+                        height="100"
+                        fill="royalblue"
+                        opacity="0.7"
+                        stroke="black">
+                    </rect>
+                </svg>
+            </section>
+        </main>
+        <aside aria-labelledby="journal-heading">
+            <section class="journal-panel desktop-journal">
+                <h2 id="journal-heading">Featured from my journal</h2>
+
+                <article>
+                    <h3>How the aura farming kid from tiktok helped me find a community</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>You don't need to optimize your life</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>My take on why UCSD isn't socially dead</h3>
+                    <p>Coming soon</p>
+                </article>
+            </section>
+            <details class="journal-panel mobile-journal">
+                <summary>Featured from my journal</summary>
+
+                <article>
+                    <h3>How the aura farming kid from tiktok helped me find a community</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>You don't need to optimize your life</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>My take on why UCSD isn't socially dead</h3>
+                    <p>Coming soon</p>
+                </article>
+            </details>
+
+            <ul class="social-links" aria-label="Social profiles">
+                <li>
+                    <a class="social-link" href="https://www.linkedin.com/in/jude-raphael-gamba">
+                        <img src="assets/icons/linkedin.svg" data-dark-src="assets/icons/linkedin-converted-inverted.png"
+                            alt="" width="24" height="24">
+                        <span>LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" href="https://github.com/JudeRgamba">
+                        <img src="assets/icons/GitHub_Invertocat_Black_Clearspace.svg" data-dark-src="assets/icons/GitHub_Invertocat_Black_Clearspace-converted-inverted.png"
+                            alt="" width="24" height="24">
+                        <span>GitHub</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="footer-message">Thanks for stopping by!</p>
+
+                <nav class="footer-links" aria-label="Footer navigation">
+                    <a href="https://github.com/JudeRgamba">
+                        <img
+                            src="assets/icons/GitHub_Invertocat_Black_Clearspace.svg" data-dark-src="assets/icons/GitHub_Invertocat_Black_Clearspace-converted-inverted.png"
+                            alt=""
+                            width="24"
+                            height="24">
+                        <span>GitHub</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/jude-raphael-gamba">
+                        <img
+                            src="assets/icons/linkedin.svg" data-dark-src="assets/icons/linkedin-converted-inverted.png"
+                            alt=""
+                            width="24"
+                            height="24">
+                        <span>LinkedIn</span>
+                    </a>
+
+                    <a href="experiments.html">Experiment Playground</a>
+                </nav>
+            </div>
+
+            <p class="footer-copyright">
+                <small>© 2026 Jude Gamba</small>
+            </p>
+        </footer>
+        <script>
+            const canvas = document.getElementById("drawing");
+            const context = canvas.getContext("2d");
+            if (context) {
+                context.fillStyle = "royalblue";
+                context.fillRect(0, 0, canvas.width, canvas.height);
+                context.fillStyle = "white";
+                context.font = "24px sans-serif";
+                context.fillText("Hello world", 30, 90);
+            }
+        </script>
+        <a
+            class="floating-resume"
+            href="assets/jude-gamba-resume.pdf"
+            download
+            aria-label="Download resume">
+            <img
+                src="assets/icons/download.svg" data-dark-src="assets/icons/download-converted-inverted.png"
+                alt=""
+                width="24"
+                height="24">
+        </a>
+    </body>
+</html>

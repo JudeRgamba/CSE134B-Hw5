@@ -1,0 +1,75 @@
+/* Jude Gamba */
+/* https://github.com/JudeRgamba/CSE134B-Hw3 */
+
+@font-face {
+    font-family: 'CheeseFont';
+    src: url('../assets/fonts/CHEESEPIZZA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Cheesefont', sans-serif;
+    color: #2e231b;
+    line-height: 1.6;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 20px 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    color: #1A130F;
+    color: #B87700;
+}
+/* The second value wins because the css parser reads the styles one by one and
+   the second style overwrites the first value. */
+
+h2 {
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.latin {
+    font-style: italic;
+}
+
+#warning {
+    background-color: #ffbc42;
+}
+
+blockquote {
+    border:3px dashed #2e231b;
+    /* Center within the block */
+    padding-block: 20px;
+    margin-block: 15px;
+
+    /* padding and margin outside the block */
+    padding-inline: 25px; 
+    margin-inline: 30px;
+}
+
+/* Removes top margin to center within blockquote */
+blockquote p{
+    margin: 0 0 10px;
+}
+
+/* Hover and Focus */
+a:hover {
+    color: #ffbc42;
+}
+
+a:focus-visible {
+    outline: 3px solid #FFB833;
+}
+
+input:focus-visible {
+    outline: 3px solid #FFB833;
+}
+
+button:focus-visible {
+    outline: 3px solid #FFB833;
+}       
+

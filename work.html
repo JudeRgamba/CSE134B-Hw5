@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description"
+            content="Personal website showcasing Jude Gamba's portfolio">
+        <Title>Work Page</Title>
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="theme.js"></script>
+    </head>
+    <body class="work-page">
+        <header>
+            <h1>Serious Stuff...</h1>
+            <button type="button" class="theme-toggle" hidden>Switch to dark theme</button>
+        </header>
+        <nav aria-label="Main navigation">
+            <h2><span class="first-name">jude</span>.<span class="last-name">gamba</span></h2>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <img src="assets/icons/home.svg" data-dark-src="assets/icons/home-converted-inverted.png" alt="" width="24" height="24">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <img src="assets/icons/user.svg" data-dark-src="assets/icons/user-converted-inverted.png" alt="" width="24" height="24">
+                        <span>About Me</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="work.html" aria-current="page">
+                        <img src="assets/icons/briefcase.svg" data-dark-src="assets/icons/briefcase-converted-inverted.png" alt="" width="24" height="24">
+                        <span>Work</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="connect.html">
+                        <img src="assets/icons/paper-plane.svg" data-dark-src="assets/icons/paper-plane-converted-inverted.png" alt="" width="24" height="24">
+                        <span>Let's Connect</span>
+                    </a>
+                </li>
+                <li class="nav-resume-item">
+                    <a href="assets/jude-gamba-resume.pdf" download class="resume-link">
+                        Download Resume
+                    </a>
+                </li>
+                <li>
+                    <a href="form-no-js.html">
+                        <span>No JS Form</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="form-with-js.html">
+                        <span>JS Form</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <details class="mobile-menu">
+            <summary aria-label="Navigation menu">
+                <span class="hamburger" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </summary>
+            <nav aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="work.html" aria-current="page">Work</a></li>
+                    <li><a href="connect.html">Let's Connect</a></li>
+                    <li>
+                        <a href="form-no-js.html">
+                            No JS Form
+                        </a>
+                    </li>
+                    <li>
+                        <a href="form-with-js.html">
+                            JS Form
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </details>
+        <main>
+            <section aria-labelledby="work-experience-heading">
+                <h2 id="work-experience-heading">Career Experience</h2>
+                <work-timeline>
+                    <ol class="career-timeline">
+                        <li>
+                            <div class="company-heading">
+                                <img
+                                    src="assets/icons/cosd_logo.jpg" data-dark-src="assets/icons/cosd_logo-converted-inverted.png"
+                                    alt=""
+                                    width="60"
+                                    height="40">
+                                <h3>City of San Diego</h3>
+                            </div>
+                            <p class="career-role">Student Intern</p>
+                            <p class="career-dates">
+                                <time datetime="2024-06">June 2024</time>
+                                –
+                                <time datetime="2024-09">September 2024</time>
+                            </p>
+                        </li>
+
+                        <li>
+                            <div class="company-heading">
+                                <img
+                                    src="assets/icons/cosd_logo.jpg" data-dark-src="assets/icons/cosd_logo-converted-inverted.png"
+                                    alt=""
+                                    width="60"
+                                    height="40">
+                                <h3>City of San Diego</h3>
+                            </div>
+                            <p class="career-role">Web Developer Intern</p>
+                            <p class="career-dates">
+                                <time datetime="2024-09">September 2024</time>
+                                –
+                                <time datetime="2025-10">October 2025</time>
+                            </p>
+                            <p>
+                                Updated and maintained the City's official website
+                                using Drupal. Set up a local testing environment
+                                using WSL2, Docker, and DDEV.
+                            </p>
+                        </li>
+                    </ol>
+                </work-timeline>
+                <div class="degree-widget">
+                    <div class="degree-heading">
+                        <label for="degree-progress">Degree loading…</label>
+                        <span>75%</span>
+                    </div>
+
+                    <progress id="degree-progress" value="75" max="100">
+                        75%
+                    </progress>
+
+                    <p class="degree-status">Status: compiling a future.</p>
+
+                    <p class="degree-caption">
+                        Estimated completion: July 2027.
+                        Employment Chances: unknown.
+                    </p>
+
+                    <button command="show-modal" commandfor="my-dialog">
+                        Unlock Employment
+                    </button>
+                </div>
+
+                <dialog
+                    id="my-dialog"
+                    class="employment-dialog"
+                    aria-labelledby="employment-heading"
+                    aria-describedby="employment-message">
+
+                    <h2 id="employment-heading">Employment not found</h2>
+
+                    <p id="employment-message">It's never that easy.</p>
+
+                    <button commandfor="my-dialog" command="close" autofocus>
+                        Keep applying
+                    </button>
+                </dialog>
+            </section>
+            <br>
+            <section aria-labelledby="projects-heading">
+                <h2 id="projects-heading">Projects I have built</h2>
+                <ul class="work-projects">
+                    <li>
+                        <project-card id="triton-living">
+                            <a href="https://github.com/ucsd-cse-genai-programming-sp26/04-student-choice-jude-adrian-a4" target="_blank">
+                                <img
+                                class="project-thumbnail"
+                                src="assets/images/projects/triton-living.png"
+                                alt=""
+                                width="144"
+                                height="144"
+                                loading="lazy">
+                            </a>
+                            <div class="project-details">
+                                <h3>TritonLiving</h3>
+                                <p>
+                                    Designed and built an interactive, fully browser-based card puzzle game 
+                                    with emphasis on intuitive UI layout and smooth CSS animations for an 
+                                    engaging player experience. Followed Agile development practices – planning
+                                    iterative sprints and incorporating feedback – to progressively improve game
+                                    responsiveness and flow. Applied player interaction observations and user 
+                                    feedback to refine game mechanics and inform design decisions throughout development.
+                                </p>
+                                <p><a href="https://github.com/ucsd-cse-genai-programming-sp26/04-student-choice-jude-adrian-a4" target="_blank">Link to Project</a></p>
+                                <p>
+                                    March 2025 - June 2025
+                                </p>
+                            </div>
+                        </project-card>
+                    </li>
+
+                    <li>
+                        <project-card id="carden">
+                            <a href="https://github.com/cse110-sp25-group04/cse110-sp25-group04" target="_blank">
+                                <img
+                                class="project-thumbnail"
+                                src="assets/images/projects/carden.png"
+                                alt=""
+                                width="144"
+                                height="144"
+                                loading="lazy">
+                            </a>
+                            <div class="project-details">
+                                <h3>Carden</h3>
+                                <p>
+                                    Built a full-stack roommate discovery platform for UCSD students using Next.js,
+                                    Prisma, and PostgreSQL, modeling user profiles, housing/lifestyle preferences, 
+                                    saved candidates, and messages in a relational schema. Implemented a weighted 
+                                    compatibility engine ranking candidates across 20+ categories (budget, location,
+                                    social habits, etc.) with user-controlled priority weighting and explainable match reasons.
+                                    Integrated OpenAI API to generate per-user lifestyle summaries and per-pair match 
+                                    explanations, persisted in PostgreSQL and regenerated when preferences change.
+                                    Built one-on-one messaging with Prisma-backed conversation persistence, deduplicated 
+                                    per user pair, and kept live via database polling.
+                                </p>
+                                <p><a href="https://github.com/cse110-sp25-group04/cse110-sp25-group04" target="_blank">Link to Project</a></p>
+                                <p>
+                                    April 2026 - July 2026
+                                </p>
+                            </div>
+                        </project-card>
+                    </li>
+                </ul>
+            </section>
+        </main>
+        <aside aria-labelledby="journal-heading">
+            <section class="journal-panel desktop-journal">
+                <h2 id="journal-heading">Featured from my journal</h2>
+
+                <article>
+                    <h3>How the aura farming kid from tiktok helped me find a community</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>You don't need to optimize your life</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>My take on why UCSD isn't socially dead</h3>
+                    <p>Coming soon</p>
+                </article>
+            </section>
+            <details class="journal-panel mobile-journal">
+                <summary>Featured from my journal</summary>
+
+                <article>
+                    <h3>How the aura farming kid from tiktok helped me find a community</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>You don't need to optimize your life</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>My take on why UCSD isn't socially dead</h3>
+                    <p>Coming soon</p>
+                </article>
+            </details>
+            <ul class="social-links" aria-label="Social profiles">
+                <li>
+                    <a class="social-link" href="https://www.linkedin.com/in/jude-raphael-gamba">
+                        <img src="assets/icons/linkedin.svg" data-dark-src="assets/icons/linkedin-converted-inverted.png"
+                            alt="" width="24" height="24">
+                        <span>LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" href="https://github.com/JudeRgamba">
+                        <img src="assets/icons/GitHub_Invertocat_Black_Clearspace.svg" data-dark-src="assets/icons/GitHub_Invertocat_Black_Clearspace-converted-inverted.png"
+                            alt="" width="24" height="24">
+                        <span>GitHub</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="footer-message">Thanks for stopping by!</p>
+
+                <nav class="footer-links" aria-label="Footer navigation">
+                    <a href="https://github.com/JudeRgamba">
+                        <img
+                            src="assets/icons/GitHub_Invertocat_Black_Clearspace.svg" data-dark-src="assets/icons/GitHub_Invertocat_Black_Clearspace-converted-inverted.png"
+                            alt=""
+                            width="24"
+                            height="24">
+                        <span>GitHub</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/jude-raphael-gamba">
+                        <img
+                            src="assets/icons/linkedin.svg" data-dark-src="assets/icons/linkedin-converted-inverted.png"
+                            alt=""
+                            width="24"
+                            height="24">
+                        <span>LinkedIn</span>
+                    </a>
+
+                    <a href="experiments.html">Experiment Playground</a>
+                </nav>
+            </div>
+
+            <p class="footer-copyright">
+                <small>© 2026 Jude Gamba</small>
+            </p>
+        </footer>
+        <script>
+            class WorkTimeline extends HTMLElement {
+                constructor() {
+                    super();
+                    console.log("Hello world");
+                }
+            }
+
+            customElements.define("work-timeline", WorkTimeline);
+        </script>
+        <a
+            class="floating-resume"
+            href="assets/jude-gamba-resume.pdf"
+            download
+            aria-label="Download resume">
+            <img
+                src="assets/icons/download.svg" data-dark-src="assets/icons/download-converted-inverted.png"
+                alt=""
+                width="24"
+                height="24">
+        </a>
+    </body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description"
+            content="Personal website showcasing Jude Gamba's portfolio">
+        <Title>About Me Page</Title>
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="theme.js"></script>
+    </head>
+    <body class="about-page">
+        <header>
+            <h1>About Me</h1>
+            <button type="button" class="theme-toggle" hidden>Switch to dark theme</button>
+        </header>
+        <nav aria-label="Main navigation">
+            <h2><span class="first-name">jude</span>.<span class="last-name">gamba</span></h2>
+            <ul>
+                <li>
+                    <a href="index.html">
+                        <img src="assets/icons/home.svg" data-dark-src="assets/icons/home-converted-inverted.png" alt="" width="24" height="24">
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html" aria-current="page">
+                        <img src="assets/icons/user.svg" data-dark-src="assets/icons/user-converted-inverted.png" alt="" width="24" height="24">
+                        <span>About Me</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="work.html">
+                        <img src="assets/icons/briefcase.svg" data-dark-src="assets/icons/briefcase-converted-inverted.png" alt="" width="24" height="24">
+                        <span>Work</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="connect.html">
+                        <img src="assets/icons/paper-plane.svg" data-dark-src="assets/icons/paper-plane-converted-inverted.png" alt="" width="24" height="24">
+                        <span>Let's Connect</span>
+                    </a>
+                </li>
+                <li class="nav-resume-item">
+                    <a href="assets/jude-gamba-resume.pdf" download class="resume-link">
+                        Download Resume
+                    </a>
+                </li>
+                <li>
+                    <a href="form-no-js.html">
+                        <span>No JS Form</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="form-with-js.html">
+                        <span>JS Form</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <details class="mobile-menu">
+            <summary aria-label="Navigation menu">
+                <span class="hamburger" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </summary>
+            <nav aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" aria-current="page">About Me</a></li>
+                    <li><a href="work.html">Work</a></li>
+                    <li><a href="connect.html">Let's Connect</a></li>
+                    <li>
+                        <a href="form-no-js.html">
+                            No JS Form
+                        </a>
+                    </li>
+                    <li>
+                        <a href="form-with-js.html">
+                            JS Form
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </details>
+        <main>
+            <section class="profile" aria-labelledby="profile-name">
+                <img
+                    class="profile-cover"
+                    src="assets/images/cover-photo.JPG"
+                    alt="80s road bike in front of a bench on a nature trail" width="600" height="400">
+
+                <div class="profile-details">
+                    <img
+                        class="profile-avatar"
+                        src="assets/images/about-photo.JPG"
+                        alt="Jude taking a photo with a digital camera"
+                        width="144"
+                        height="144">
+
+                    <h2 id="profile-name">Jude Gamba</h2>
+
+                    <p>
+                        Do I have everything figured out? No, but I think that's
+                        the beauty of living. Right now, I am a senior
+                        <strong>computer science major</strong> at UCSD,
+                        graduating in <strong>July 2027</strong>.
+                        Hopefully this website shows you that a path to your
+                        aspirations isn't a straight line.
+                    </p>
+
+                    <ul class="profile-meta">
+                        <li>
+                            <img
+                                src="assets/icons/location.svg" data-dark-src="assets/icons/location-converted-inverted.png"
+                                alt=""
+                                width="20"
+                                height="20">
+                            <span>San Diego, CA</span>
+                        </li>
+                        <li>
+                            <img
+                                src="assets/icons/calendar.svg" data-dark-src="assets/icons/calendar-converted-inverted.png"
+                                alt=""
+                                width="20"
+                                height="20">
+                            <span>Joined Earth 2005</span>
+                        </li>
+                    </ul>
+
+                    <p class="profile-stat">
+                        <strong>1,000+</strong> hours in sleep debt
+                    </p>
+                </div>
+            </section>
+            <section class="hobby-feed" aria-labelledby="hobby-heading">
+                <h2 id="hobby-heading">Life isn't all screens and technology</h2>
+                <p><i>But it sometimes is..</i></p>
+                <article class="hobby-post" aria-labelledby="travel-heading">
+                    <header class="hobby-author">
+                        <img
+                            src="assets/images/about-photo.JPG"
+                            alt=""
+                            width="48"
+                            height="48">
+                        <p>Jude Gamba | Dilly Dally Enthusiast</p>
+                    </header>
+
+                    <h3 id="travel-heading">Going outside!</h3>
+
+                    <p>
+                        Should you travel? Yes! Is it expensive? Hell yes.
+                        I have been to five different countries, and no matter
+                        where I am, I always try to explore new places.
+                        Here's a glimpse of where I have been.
+                    </p>
+
+                    <ul class="photo-gallery" aria-label="Travel photos">
+                        <li>
+                            <a href="assets/images/outdoor-photo-1.jpg">
+                                <img
+                                    src="assets/images/outdoor-photo-1.jpg"
+                                    alt="Idyllwild, California — open full photo"
+                                    loading="lazy" width="600" height="400">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="assets/images/outdoor-photo-2.jpeg">
+                                <img
+                                    src="assets/images/outdoor-photo-2.jpeg"
+                                    alt="Three people on Potato Chip Rock — open full photo"
+                                    loading="lazy" width="600" height="400">
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+                <article class="hobby-post" aria-labelledby="keyboards-heading">
+                    <header class="hobby-author">
+                        <img
+                            src="assets/images/about-photo.JPG"
+                            alt=""
+                            width="48"
+                            height="48">
+                        <p>Jude Gamba | Dilly Dally Enthusiast</p>
+                    </header>
+
+                    <h3 id="keyboards-heading">Mechanical Keyboards</h3>
+
+                    <p>
+                        I've built over 10 keyboards myself and have spent a
+                        questionable amount of money, but it was worth it.
+                        Here are a few of my favorite builds.
+                    </p>
+
+                    <ul class="photo-gallery" aria-label="Keyboard photos">
+                        <li>
+                            <a href="assets/images/hobbies/keyboard1.jpeg">
+                                <img
+                                    src="assets/images/hobbies/keyboard1.jpeg"
+                                    alt="Purple keyboard with white keycaps — open full photo "
+                                    loading="lazy" width="600" height="400">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="assets/images/hobbies/keyboard2.jpeg">
+                                <img
+                                    src="assets/images/hobbies/keyboard2.jpeg"
+                                    alt="Black keyboard with black keycaps — open full photo"
+                                    loading="lazy"width="600" height="400">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="assets/images/hobbies/keyboard3.jpeg">
+                                <img
+                                    src="assets/images/hobbies/keyboard3.jpeg"
+                                    alt="Pink Keyboard with rainbow keycaps — open full photo"
+                                    loading="lazy"width="600" height="400">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="assets/images/hobbies/keyboard4.jpeg">
+                                <img
+                                    src="assets/images/hobbies/keyboard4.jpeg"
+                                    alt="Black keyboard with orange keycaps — open full photo"
+                                    loading="lazy"width="600" height="400">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="assets/images/hobbies/keyboard5.jpeg">
+                                <img
+                                    src="assets/images/hobbies/keyboard5.jpeg"
+                                    alt="Black keyboard with blue keycaps — open full photo"
+                                    loading="lazy"width="600" height="400">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="assets/images/hobbies/keyboard6.jpeg">
+                                <img
+                                    src="assets/images/hobbies/keyboard6.jpeg"
+                                    alt="Black keyboard with black and oragne keycaps — open full photo"
+                                    loading="lazy" width="600" height="400">
+                            </a>
+                        </li>
+                    </ul>
+                    
+                    <iframe
+                        class="hobby-video"
+                        src="https://www.youtube.com/embed/8ta4dSQ-P9c"
+                        title="The Best Keyboard at Every Price"
+                        loading="lazy"
+                        allowfullscreen>
+                    </iframe>
+                </article>
+                <article class="hobby-post" aria-labelledby="rowing-heading">
+                    <header class="hobby-author">
+                        <img
+                            src="assets/images/about-photo.JPG"
+                            alt=""
+                            width="48"
+                            height="48">
+                        <p>Jude Gamba | Dilly Dally Enthusiast</p>
+                    </header>
+
+                    <h3 id="dragon-boat-heading">Dragon Boat</h3>
+
+                    <p>
+                        You might be wondering what the h*ll is dragon boat?
+                    </p>
+                    <p>
+                        I had the same question going in but now a year into the hobby and it's 
+                        probably the best decision I have ever made as part of my college career.
+                    </p>
+                    <p>
+                        Here are a few pics of what being a part of the team is like.
+                    </p>
+                    <ul class="photo-gallery" aria-label="Dragon boat photos">
+                        <li>
+                            <a href="assets/images/hobbies/dragon-boat.jpg">
+                                <img
+                                    src="assets/images/hobbies/dragon-boat.jpg"
+                                    alt="Team UCSD Dragon boat holding up medals in rows — open full photo "
+                                    loading="lazy">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="assets/images/hobbies/dragon-boat2.JPG">
+                                <img
+                                    src="assets/images/hobbies/dragon-boat2.JPG"
+                                    alt="Man holding a paddle on his back and smiling at the camera — open full photo "
+                                    loading="lazy" width="600" height="400">
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+                <article class="hobby-post" aria-labelledby="rocket-league-heading">
+                    <header class="hobby-author">
+                        <img
+                            src="assets/images/about-photo.JPG"
+                            alt=""
+                            width="48"
+                            height="48">
+                        <p>Jude Gamba | Dilly Dally Enthusiast</p>
+                    </header>
+
+                    <h3 id="rocket-league-heading">Rocket League (best game of all time)</h3>
+
+                    <p>No other game I have tried has given me the satisfaction that this game has.</p>
+                    <p>
+                        Almost 2000 hours of playtime in and I can say that it still feels linkedin
+                        the first time I played it back during covid when everyone tried finding 
+                        something to pass the time.
+                    </p>
+                    <p>
+                        Although I don't have much time to play it any longer, it still is one of the 
+                        defining things I have poured my time and effort into.
+                    </p>
+                    <ul class="photo-gallery" aria-label="Rocket League Photos">
+                        <li>
+                            <a href="assets/images/hobbies/rocket-league-1.jpeg">
+                                <img
+                                    src="assets/images/hobbies/rocket-league-1.jpeg"
+                                    alt="Jude using a keyboard and mouse to play rocket leage at his desk — open full photo "
+                                    loading="lazy" width="600" height="400">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="assets/images/hobbies/rocket-league-2.jpeg">
+                                <img
+                                    src="assets/images/hobbies/rocket-league-2.jpeg"
+                                    alt="Rocket league score board showing rank and stats after the game — open full photo "
+                                    loading="lazy">
+                            </a>
+                        </li>
+                    </ul>
+                </article>
+            </section>
+        </main>
+        <aside aria-labelledby="journal-heading">
+            <section class="journal-panel desktop-journal">
+                <h2 id="journal-heading">Featured from my journal</h2>
+
+                <article>
+                    <h3>How the aura farming kid from tiktok helped me find a community</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>You don't need to optimize your life</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>My take on why UCSD isn't socially dead</h3>
+                    <p>Coming soon</p>
+                </article>
+            </section>
+            <details class="journal-panel mobile-journal">
+                <summary>Featured from my journal</summary>
+
+                <article>
+                    <h3>How the aura farming kid from tiktok helped me find a community</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>You don't need to optimize your life</h3>
+                    <p>Coming soon</p>
+                </article>
+
+                <article>
+                    <h3>My take on why UCSD isn't socially dead</h3>
+                    <p>Coming soon</p>
+                </article>
+            </details>
+
+            <ul class="social-links" aria-label="Social profiles">
+                <li>
+                    <a class="social-link" href="https://www.linkedin.com/in/jude-raphael-gamba">
+                        <img src="assets/icons/linkedin.svg" data-dark-src="assets/icons/linkedin-converted-inverted.png"
+                            alt="" width="24" height="24">
+                        <span>LinkedIn</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="social-link" href="https://github.com/JudeRgamba">
+                        <img src="assets/icons/GitHub_Invertocat_Black_Clearspace.svg" data-dark-src="assets/icons/GitHub_Invertocat_Black_Clearspace-converted-inverted.png"
+                            alt="" width="24" height="24">
+                        <span>GitHub</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p class="footer-message">Thanks for stopping by!</p>
+
+                <nav class="footer-links" aria-label="Footer navigation">
+                    <a href="https://github.com/JudeRgamba">
+                        <img
+                            src="assets/icons/GitHub_Invertocat_Black_Clearspace.svg" data-dark-src="assets/icons/GitHub_Invertocat_Black_Clearspace-converted-inverted.png"
+                            alt=""
+                            width="24"
+                            height="24">
+                        <span>GitHub</span>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/jude-raphael-gamba">
+                        <img
+                            src="assets/icons/linkedin.svg" data-dark-src="assets/icons/linkedin-converted-inverted.png"
+                            alt=""
+                            width="24"
+                            height="24">
+                        <span>LinkedIn</span>
+                    </a>
+
+                    <a href="experiments.html">Experiment Playground</a>
+                </nav>
+            </div>
+
+            <p class="footer-copyright">
+                <small>© 2026 Jude Gamba</small>
+            </p>
+        </footer>
+        <a
+            class="floating-resume"
+            href="assets/jude-gamba-resume.pdf"
+            download
+            aria-label="Download resume">
+            <img
+                src="assets/icons/download.svg" data-dark-src="assets/icons/download-converted-inverted.png"
+                alt=""
+                width="24"
+                height="24">
+        </a>
+    </body>
+</html>

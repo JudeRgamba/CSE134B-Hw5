@@ -1,0 +1,1363 @@
+/* Jude Gamba */
+/* https://github.com/JudeRgamba/CSE134B-Hw3 */
+
+@font-face {
+    font-family: 'Twitter Chirp';
+    src: url('assets/fonts/Chirp-Heavy.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Twitter Chirp';
+    src: url('assets/fonts/Chirp-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Twitter Chirp';
+    src: url('assets/fonts/Chirp-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Twitter Chirp';
+    src: url('assets/fonts/Chirp-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Shared settings and default light theme */
+:root {
+    --font-body: "Twitter Chirp", Arial, sans-serif;
+    --spacing: 1rem;
+
+    color-scheme: light;
+    --page-background: #f6fff8;
+    --feed-background: #ffffff;
+    --surface-background: #eaf4f4;
+    --text-color: #1f2925;
+    --link-color: #365e4d;
+    --border-color: #cce3de;
+    --hover-background: #cce3de;
+    --accent-color: #6b9080;
+    --progress-track: #cce3de;
+    --button-background: #365e4d;
+    --button-hover-background: #1f2925;
+    --button-text: #ffffff;
+    --focus-color: #365e4d;
+    --input-background: #eaf4f4;
+    --input-border: #365e4d;
+    --error-color: #a12622;
+    --footer-background: #6b9080;
+    --footer-text: #1f2925;
+    --shadow-color: rgb(0 0 0 / 20%);
+    --floating-shadow-color: rgb(0 0 0 / 25%);
+    --backdrop-color: rgb(0 0 0 / 55%);
+}
+
+/* Dark theme: activated by data-theme="dark" on the html element. */
+:root[data-theme="dark"] {
+    color-scheme: dark;
+    --page-background: #101815;
+    --feed-background: #18231e;
+    --surface-background: #22322a;
+    --text-color: #edf5ef;
+    --link-color: #a4d8bb;
+    --border-color: #425c4f;
+    --hover-background: #30483b;
+    --accent-color: #89b9a0;
+    --progress-track: #425c4f;
+    --button-background: #365e4d;
+    --button-hover-background: #426e5b;
+    --button-text: #ffffff;
+    --focus-color: #b5ebcd;
+    --input-background: #22322a;
+    --input-border: #89b9a0;
+    --error-color: #ffaaa5;
+    --footer-background: #263e32;
+    --footer-text: #edf5ef;
+    --shadow-color: rgb(0 0 0 / 40%);
+    --floating-shadow-color: rgb(0 0 0 / 45%);
+    --backdrop-color: rgb(0 0 0 / 70%);
+}
+
+body {
+    margin: 0;
+    background-color: var(--page-background);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+a {
+    color: var(--link-color);
+}
+
+/* Native button supports Tab, Enter, and Space. Reveal only after setup. */
+.theme-toggle[hidden] {
+    display: none;
+}
+
+.theme-toggle {
+    padding: 0.5em 0.75em;
+    border: 1px solid var(--input-border);
+    border-radius: 0.75rem;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    font: inherit;
+    cursor: pointer;
+}
+
+.theme-toggle:hover {
+    background-color: var(--button-hover-background);
+}
+
+body > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+main {
+    background-color: var(--feed-background);
+    border-inline: 1px solid var(--border-color);
+    padding: var(--spacing);
+}
+
+/* Include padding and borders within declared element widths. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Desktop: navigation, center feed, and journal sidebar. */
+@media (min-width: 75rem) {
+    body {
+        display: grid;
+        grid-template-columns:
+            minmax(0, 1fr)
+            minmax(0, min(20.68vw, 24.75rem))
+            minmax(0, min(43.24vw, 51.75rem))
+            minmax(0, min(30.08vw, 36rem))
+            minmax(0, 1fr);
+        grid-template-rows: auto 1fr auto;
+
+        width: 100%;
+        max-width: none;
+        margin: 0;
+
+        align-items: start;
+        min-height: 100vh;
+    }
+
+    /* Child selectors place the page's main regions in the grid. */
+    body > header {
+        grid-column: 3;
+        grid-row: 1;
+        padding: var(--spacing);
+        background-color: var(--feed-background);
+        border-inline: 1px solid var(--border-color);
+    }
+
+    body > main {
+        grid-column: 3;
+        grid-row: 2;
+        min-width: 0;
+        align-self: stretch;
+    }
+
+    body > nav {
+        grid-column: 2;
+        grid-row: 1 / 3;
+    }
+
+    body > aside {
+        grid-column: 4;
+        grid-row: 1 / 3;
+    }
+
+    body > nav,
+    body > aside {
+        position: sticky;
+        top: 0;
+        max-height: 100vh;
+        overflow-y: auto;
+        padding: var(--spacing);
+    }
+
+    body > footer {
+        grid-column: 2;
+        grid-row: 3;
+        padding: var(--spacing);
+        background-color: var(--feed-background);
+        border-inline: 1px solid var(--border-color);
+    }
+}
+
+/* Navigation Bar Styling */
+@media (min-width: 75rem) {
+    /* Child combinator: style the main navigation's list. */
+    body > nav > ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Descendant combinator: align icons and text within navigation links. */
+    body > nav a {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.65em 0.8em;
+        border-radius: 20px;
+        color: var(--text-color);
+        font-size: 1.125rem;
+        text-decoration: none;
+    }
+
+    body > nav a img {
+        width: 1.5rem;
+        height: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    body > nav a:hover {
+        background-color: var(--hover-background);
+        text-decoration: underline;
+        text-underline-offset: 0.25em;
+    }
+
+    /* Attribute selector: identify the current page's navigation link. */
+    body > nav a[aria-current="page"] {
+        background-color: var(--surface-background);
+        color: var(--link-color);
+        font-weight: 700;
+        text-decoration: underline;
+        text-underline-offset: 0.25em;
+    }
+
+    body > nav .resume-link {
+        justify-content: center;
+        margin-top: var(--spacing);
+        padding: 0.85em 1em;
+        background-color: var(--button-background);
+        color: var(--button-text);
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    body > nav .resume-link:hover {
+        background-color: var(--button-hover-background);
+    }
+}
+
+/* Keep keyboard focus visible at every screen width. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 3px;
+}
+
+/* Stick Header for top of page */
+@media (min-width: 75rem) {
+    body > header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    body > header > h1 {
+        margin: 0;
+        font-size: 1.5rem;
+        line-height: 1.25;
+    }
+}
+
+/* Main Feed Styling */
+.home-page > main {
+    padding: 0;
+}
+
+/* Child combinator: give each Home feed section its own spacing. */
+.home-page > main > section {
+    padding: var(--spacing);
+}
+
+/* Adjacent sibling combinator: separate consecutive feed sections. */
+.home-page > main > section + section {
+    border-top: 1px solid var(--border-color);
+}
+
+.home-page > main > section > h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.home-page > main p {
+    margin: 0.75rem 0 0;
+}
+
+/* Descendant selector: keep Home photos within their available width. */
+.home-page main img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.75rem;
+}
+
+/* Child combinator: arrange featured projects in one scrollable row. */
+.home-page .project-stories {
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem;
+}
+
+.home-page .project-stories > li {
+    flex: 0 0 6rem;
+}
+
+.home-page .project-stories a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem;
+    color: var(--text-color);
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.home-page .project-stories img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+}
+
+.home-page .project-stories a:hover {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.home-page .project-stories a:hover img {
+    border-color: var(--link-color);
+}
+
+/* Attribute selector: give linked projects a block box and anchor clearance. */
+project-card[id] {
+    display: block;
+    scroll-margin-top: 6rem;
+}
+
+/* Descendant selector: align the avatar and author name within a post. */
+.home-page .post-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.home-page .post-author img {
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.home-page .post-author h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.home-page .feed-post > p {
+    margin: 0;
+}
+
+/* Fill the feed with the welcome photo and update photo. */
+.home-page section[aria-labelledby="welcome-heading"] > img,
+.home-page .post-photo {
+    width: 100%;
+    height: auto;
+}
+
+/* Journal Sidebar Styling */
+.journal-panel {
+    background-color: var(--surface-background);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+}
+
+/* Child combinator: space the panel heading and journal entries. */
+.journal-panel > h2,
+.journal-panel > article {
+    padding: var(--spacing);
+    margin: 0;
+}
+
+.journal-panel > h2 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.journal-panel > article {
+    border-top: 1px solid var(--border-color);
+}
+
+.journal-panel h3 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.journal-panel p {
+    margin: 0.5rem 0 0;
+    font-size: 0.875rem;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: var(--spacing) 0 0;
+    padding: 0;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5em;
+    border-radius: 0.5rem;
+    color: var(--link-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.social-link img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+}
+
+/* Attribute selector: hover styling applies only to real profile links. */
+.social-link[href]:hover {
+    background-color: var(--hover-background);
+    text-decoration-thickness: 2px;
+}
+
+/* Profile Page Styles */
+.about-page > main {
+    padding: 0;
+}
+
+.profile-cover {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 1;
+    object-fit: cover;
+}
+
+.profile-details {
+    padding: 0 var(--spacing) var(--spacing);
+}
+
+.profile-avatar {
+    display: block;
+    position: relative;
+    width: 9rem;
+    height: 9rem;
+    margin-top: -4.5rem;
+    border: 0.3rem solid var(--feed-background);
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Child selector: style the profile's name and bio paragraphs. */
+.profile-details > h2 {
+    margin: 0.75rem 0 0;
+    font-size: 1.5rem;
+    line-height: 1.25;
+}
+
+.profile-details > p {
+    margin: 0.75rem 0 0;
+}
+
+.profile-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    font-size: 0.875rem;
+}
+
+.profile-meta > li {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.profile-meta img {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.profile-stat {
+    font-size: 0.875rem;
+}
+
+/* Hobby Posts */
+.hobby-feed {
+    border-top: 1px solid var(--border-color);
+}
+
+/* Child selectors: space the hobby feed's introductory heading and text. */
+.hobby-feed > h2 {
+    margin: 0;
+    padding: var(--spacing) var(--spacing) 0;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.hobby-feed > p {
+    margin: 0;
+    padding: 0.5rem var(--spacing) var(--spacing);
+}
+
+.hobby-post {
+    padding: var(--spacing);
+    border-top: 1px solid var(--border-color);
+}
+
+.hobby-author {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.hobby-author img {
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    flex-shrink: 0;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.hobby-author p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.hobby-post > h3 {
+    margin: 0.75rem 0 0;
+    font-size: 1.125rem;
+    line-height: 1.3;
+}
+
+.hobby-post > p {
+    margin: 0.75rem 0;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+}
+
+.photo-gallery a {
+    display: block;
+    border-radius: 0.75rem;
+}
+
+.photo-gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 0.75rem;
+}
+
+.photo-gallery a:hover {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+}
+
+/* Keep the keyboard video within its post at a widescreen ratio. */
+.hobby-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    margin-top: var(--spacing);
+    border: 0;
+    border-radius: 0.75rem;
+}
+
+/* Work Page Styling */
+.work-page > main {
+    padding: 0;
+}
+
+/* Child selector: give each Work section consistent feed spacing. */
+.work-page > main > section {
+    padding: var(--spacing);
+}
+
+.work-page > main > section > h2 {
+    margin: 0 0 1.5rem;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+work-timeline {
+    display: block;
+}
+
+.career-timeline {
+    list-style: none;
+    margin: 0 0 1.5rem 0.5rem;
+    padding: 0;
+    border-left: 2px solid var(--accent-color);
+}
+
+/* Child selector: position each experience beside the timeline. */
+.career-timeline > li {
+    position: relative;
+    padding: 0 0 2rem 1.5rem;
+}
+
+.career-timeline > li:last-child {
+    padding-bottom: 0;
+}
+
+/* Decorative dots mark each experience on the vertical line. */
+.career-timeline > li::before {
+    content: "";
+    position: absolute;
+    top: 0.3rem;
+    left: -0.4375rem;
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+}
+
+.career-timeline h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.3;
+}
+
+.career-timeline p {
+    margin: 0.5rem 0 0;
+}
+
+.career-role {
+    font-weight: 500;
+}
+
+.career-dates {
+    font-size: 0.875rem;
+}
+
+/* Descendant selector: align each company logo with its heading. */
+.career-timeline .company-heading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.company-heading img {
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    flex-shrink: 0;
+    object-fit: contain;
+}
+
+.degree-widget {
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    background-color: var(--surface-background);
+}
+
+.degree-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.degree-widget progress {
+    display: block;
+    width: 100%;
+    height: 1rem;
+    overflow: hidden;
+    appearance: none;
+    border: 0;
+    border-radius: 999px;
+    background-color: var(--progress-track);
+    accent-color: var(--accent-color);
+}
+
+/* Chrome, Edge, and Safari: style the track and filled portion. */
+.degree-widget progress::-webkit-progress-bar {
+    background-color: var(--progress-track);
+    border-radius: 20px;
+}
+
+.degree-widget progress::-webkit-progress-value {
+    background-color: var(--accent-color);
+    border-radius: 999px;
+}
+
+/* Firefox: style the filled portion. */
+.degree-widget progress::-moz-progress-bar {
+    background-color: var(--accent-color);
+    border-radius: 20px;
+}
+
+.degree-status {
+    margin: 0.75rem 0 0;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.degree-caption {
+    margin: 0.5rem 0 1rem;
+    font-size: 0.875rem;
+}
+
+.degree-widget button {
+    padding: 0.75em 1.25em;
+    border: 0;
+    border-radius: 20px;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.degree-widget button:hover {
+    background-color: var(--button-hover-background);
+}
+
+.employment-dialog {
+    width: min(90%, 26rem);
+    margin: auto;
+    padding: 1.75rem;
+    border: 1px solid var(--accent-color);
+    border-radius: 1rem;
+    background-color: var(--feed-background);
+    color: var(--text-color);
+    box-shadow: 0 1rem 3rem var(--shadow-color);
+    text-align: center;
+}
+
+/* Dim the page behind the open modal dialog. */
+.employment-dialog::backdrop {
+    background-color: var(--backdrop-color);
+}
+
+.employment-dialog h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    line-height: 1.25;
+}
+
+.employment-dialog p {
+    margin: 1rem 0 1.5rem;
+}
+
+.employment-dialog button {
+    padding: 0.75em 1.5em;
+    border: 0;
+    border-radius: 20px;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.employment-dialog button:hover {
+    background-color: var(--button-hover-background);
+}
+
+/* Project feed styling */
+/* Adjacent sibling selector: divide consecutive Work feed sections. */
+.work-page > main > section + section {
+    border-top: 1px solid var(--border-color);
+}
+
+.work-projects {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Adjacent sibling selector: separate project rows. */
+.work-projects > li + li {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.work-projects project-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    align-items: start;
+    gap: 1rem;
+}
+
+.work-projects .project-thumbnail {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    align-self: center;
+}
+
+.project-details {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.project-details h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    line-height: 1.3;
+}
+
+.project-details p {
+    margin: 0.75rem 0 0;
+}
+
+.project-details a {
+    color: var(--link-color);
+    font-weight: 700;
+    text-underline-offset: 0.2em;
+}
+
+.project-details a:hover {
+    text-decoration-thickness: 2px;
+}
+
+/* Connect Page Styling */
+.connect-page > main {
+    padding: 0;
+}
+
+/* Child selector: space the Connect feed sections. */
+.connect-page > main > section {
+    padding: var(--spacing);
+}
+
+/* Adjacent sibling selector: divide the message form and poll. */
+.connect-page > main > section + section {
+    border-top: 1px solid var(--border-color);
+}
+
+.connect-page h2 {
+    margin: 0 0 1rem;
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.message-form {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.message-form p {
+    margin: 0 0 0.5rem;
+    font-size: 0.875rem;
+}
+
+.message-form label {
+    font-weight: 700;
+}
+
+/* Attribute selector: style the email field alongside the message field. */
+.message-form input[type="text"],
+.message-form input[type="email"],
+.message-form textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 0.75em;
+    border: 1px solid var(--input-border);
+    border-radius: 0.75rem;
+    background-color: var(--input-background);
+    color: var(--text-color);
+    font: inherit;
+}
+
+.connect-page > main > .message-form {
+    padding: var(--spacing);
+}
+
+.message-form textarea {
+    resize: vertical;
+}
+
+.message-form button {
+    justify-self: end;
+    padding: 0.75em 1.5em;
+    border: 0;
+    border-radius: 20px;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.message-form button:hover {
+    background-color: var(--button-hover-background);
+}
+
+.validation-form {
+    gap: 0.375rem;
+}
+
+/* Keep the same border width in every validation state. */
+.validation-form input:required,
+.validation-form textarea:required {
+    border-width: 2px;
+}
+
+/* Keep keyboard focus visible in every validation state. */
+.validation-form input:focus-visible,
+.validation-form textarea:focus-visible,
+.validation-form button:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 3px;
+}
+
+.validation-form small {
+    display: block;
+    font-size: 0.875rem;
+}
+
+/* Reserve space so showing an error does not shift the layout. */
+.validation-form .field-error {
+    display: block;
+    visibility: hidden;
+    color: var(--error-color);
+    font-size: 0.875rem;
+}
+
+.validation-form input:user-invalid + .field-error,
+.validation-form textarea:user-invalid + .field-error {
+    visibility: visible;
+}
+
+.professor-poll fieldset {
+    min-width: 0;
+    margin: 0;
+    padding: var(--spacing);
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+}
+
+.professor-poll legend {
+    padding-inline: 0.25em;
+    font-weight: 700;
+}
+
+.poll-option {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75em;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.poll-option:hover {
+    background-color: var(--surface-background);
+}
+
+.poll-option input {
+    flex-shrink: 0;
+    margin: 0;
+    accent-color: var(--link-color);
+}
+
+/* Highlight the label containing a selected radio button. */
+.poll-option:has(input:checked) {
+    background-color: var(--hover-background);
+    color: var(--link-color);
+    font-weight: 700;
+}
+
+/* Hide feedback until Professor Soosai Raj is selected. */
+.poll-feedback {
+    display: none;
+    margin: 0.75rem 0 0;
+    color: var(--link-color);
+    font-weight: 700;
+}
+
+/* Show feedback when this fieldset contains the checked Gerald radio. */
+.professor-poll fieldset:has(#gerald:checked) .poll-feedback {
+    display: block;
+}
+
+/* Match the form's existing colors, corners, and typography. */
+.validation-form .form-feedback {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid var(--link-color);
+    border-radius: 0.75rem;
+    background-color: var(--surface-background);
+}
+
+.validation-form .form-feedback h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+}
+
+.validation-form .form-feedback p {
+    margin: 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* Match the error color already used by the no-JS form. */
+.validation-form .form-errors p {
+    color: var(--error-color);
+}
+
+/* Reserve space for each error without showing empty paragraphs. */
+.validation-form .form-errors p:empty::before {
+    content: "\00a0";
+}
+
+.validation-form #comment-info.near-limit {
+    font-weight: 700;
+    border-inline-start: 3px solid var(--link-color);
+    padding-inline-start: 0.75rem;
+}
+
+.validation-form #comment-info.at-limit {
+    font-weight: 700;
+    border-inline-start:  double 6px var(--link-color);
+    padding-inline-start: 0.75rem;
+}
+
+.validation-form [hidden] {
+    display: none;
+}
+/* Footer Styling */
+/* Child selector: style the shared page footer. */
+body > .site-footer {
+    padding: 1.5rem;
+    border: 0;
+    background-color: var(--footer-background);
+    color: var(--footer-text);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-message {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+}
+
+.footer-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25em;
+    border-radius: 0.25rem;
+    color: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+    text-underline-offset: 0.2em;
+}
+
+.footer-links img {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+}
+
+.footer-links a:hover {
+    text-decoration-thickness: 2px;
+}
+
+.footer-links a:focus-visible {
+    outline-color: var(--footer-text);
+}
+
+.footer-copyright {
+    margin: 1rem 0 0;
+}
+
+.footer-copyright small {
+    font-size: 0.875rem;
+}
+
+@media (min-width: 75rem) {
+    body > .site-footer {
+        grid-column: 1 / -1;
+        grid-row: 3;
+    }
+}
+
+/* Floating Resume Button */
+/* Hide the floating resume control on desktop. */
+@media (min-width: 75rem) {
+    .floating-resume {
+        display: none;
+    }
+}
+
+@media (width < 75rem) {
+    .floating-resume {
+        position: fixed;
+        right: 1rem;
+        bottom: calc(1rem + env(safe-area-inset-bottom));
+        z-index: 40;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.5rem;
+        height: 3.5rem;
+
+        border-radius: 50%;
+        background-color: var(--button-background);
+        box-shadow: 0 0.25rem 1rem var(--floating-shadow-color);
+    }
+
+    .floating-resume img {
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        filter: brightness(0) invert(1);
+    }
+
+    .floating-resume:hover {
+        background-color: var(--button-hover-background);
+    }
+
+    body {
+        padding-bottom: 0;
+    }
+
+    body > .site-footer {
+        padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+    }
+}
+
+
+/* Mobile and tablet layout, below the desktop breakpoint. */
+.mobile-menu {
+    display: none;
+}
+
+@media (width < 75rem) {
+    body > header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        padding: 1rem;
+        background-color: var(--feed-background);
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    body > header > h1 {
+        margin: 0;
+        font-size: 1.25rem;
+        line-height: 1.3;
+    }
+
+    body > main {
+        min-width: 0;
+        border-inline: 0;
+    }
+
+    .work-projects project-card {
+        grid-template-columns: 1fr;
+    }
+
+    .work-projects .project-thumbnail {
+        width: min(100%, 20rem);
+        justify-self: center;
+        align-self: center;
+    }
+
+    /* Hide the original desktop navigation. */
+    body > nav {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+        flex-shrink: 0;
+    }
+
+    .mobile-menu > summary {
+        padding: var(--spacing);
+        color: var(--link-color);
+        font-weight: 700;
+        cursor: pointer;
+        list-style: none;
+        width: fit-content;
+        margin-left: auto;
+    }
+
+    .mobile-menu[open] > summary {
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .mobile-menu > summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .hamburger {
+        display: grid;
+        gap: 5px;
+        width: 24px;
+    }
+
+    .hamburger > span {
+        display: block;
+        height: 2px;
+        background-color: currentColor;
+        border-radius: 2px;
+    }
+
+    .mobile-menu ul {
+        display: grid;
+        gap: 0.25rem;
+        margin: 0;
+        padding: 0.5rem;
+        list-style: none;
+    }
+
+    .mobile-menu a {
+        display: block;
+        padding: 0.75rem 1rem;
+        border-radius: 0.75rem;
+        color: var(--text-color);
+        text-decoration: none;
+    }
+
+    .mobile-menu a:hover {
+        background-color: var(--surface-background);
+    }
+
+    .mobile-menu a[aria-current="page"] {
+        background-color: var(--hover-background);
+        font-weight: 700;
+    }
+
+    .mobile-menu > summary:focus-visible,
+    .mobile-menu a:focus-visible {
+        outline: 3px solid var(--focus-color);
+        outline-offset: -3px;
+    }
+}
+
+/* Desktop uses the original, always-visible journal. */
+.mobile-journal {
+    display: none;
+}
+
+.mobile-journal > summary {
+    padding: var(--spacing);
+    border-radius: 1rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.mobile-journal > summary:hover {
+    background-color: var(--hover-background);
+}
+
+.mobile-journal > summary:focus-visible {
+    outline: 3px solid var(--focus-color);
+    outline-offset: 3px;
+}
+
+@media (width < 75rem) {
+    body > aside {
+        padding: var(--spacing);
+    }
+
+    .desktop-journal {
+        display: none;
+    }
+
+    .mobile-journal {
+        display: block;
+    }
+}
