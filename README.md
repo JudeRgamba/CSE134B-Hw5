@@ -1,10 +1,9 @@
-| Field | Value |
-| ----- | ----- |
-|Repository URL | https://github.com/JudeRgamba/CSE134B-Hw3 |
-| Part 1 Deployed URL | https://cse134b-homework3.netlify.app/part1/cheese.html |
-| Part 2 Deployed URL | https://cse134b-homework3.netlify.app/ |
-
-# CSE 134B - CSS Homework
+# CSE 134B - Web Component Homework
 
 The start to actually making a usable website.
 
+Commands to install and run the project locally:
+
+1. `cd ./ssg-exercise`
+2. `npm install`
+3. `npm run dev`

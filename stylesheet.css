@@ -1364,7 +1364,7 @@ body > .site-footer {
 
 /* Custom Web Component Styling */
 jude-facts {
-    --jude-facts-background: var(var(--surface-background), #ffffff);
+    --jude-facts-background: var(--surface-background, #ffffff);
     --jude-facts-text: var(--text-color, #1f2925);
 
     display: block;
@@ -1405,7 +1405,7 @@ jude-facts.is-enhanced .jude-facts-fallback {
 
 .jude-facts-button:focus-visible,
 #jude-facts-layout-toggle:focus-visible {
-    outline: 3px solid var(--focaus-color, #365e4d);
+    outline: 3px solid var(--focus-color, #365e4d);
     outline-offset: 3px;
 }
 
